@@ -1,0 +1,9 @@
+.region-code {
+  width: 70px;
+
+  &-box {
+    background-color: $silver-sand;
+    font-weight: $font-weight-bold;
+    padding: 6px 12px;
+  }
+}

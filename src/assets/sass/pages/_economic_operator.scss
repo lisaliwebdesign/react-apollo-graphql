@@ -1,0 +1,30 @@
+.form-telephone {
+  .form-group {
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 0;
+    clear: none;
+  }
+
+  .form-telephone-plus-sign {
+    margin-left: 0;
+    padding-top: 10px;
+    width: 2%;
+  }
+
+  .form-telephone-country-code {
+    width: 10%;
+  }
+
+  .form-telephone-subscriber-number {
+    width: 50%;
+  }
+
+  .form-telephone-number {
+    width: 50%;
+  }
+
+  input {
+    width: 100%;
+  }
+}

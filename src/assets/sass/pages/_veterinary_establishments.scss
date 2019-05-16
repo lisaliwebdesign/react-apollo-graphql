@@ -1,0 +1,50 @@
+.form-group {
+  &.search-panel {
+    background-color: $alabaster;
+    padding: 20px;
+
+    .form-control {
+      width: 100%;
+    }
+
+    .heading-medium {
+      margin: 0;
+    }
+  }
+
+  &.form-group-search {
+    float: left;
+    margin: 20px 0;
+    padding: 0 10px;
+    width: 33.33%;
+
+    &:nth-of-type(3n-2) {
+      padding-left: 0;
+    }
+
+    &:nth-last-of-type(3n) {
+      padding-right: 0;
+    }
+
+    &.form-search-no-left-padding {
+      padding-left: 0;
+    }
+
+  }
+}
+
+.establishments-table {
+  thead {
+    th {
+      vertical-align: bottom;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        vertical-align: top;
+      }
+    }
+  }
+}

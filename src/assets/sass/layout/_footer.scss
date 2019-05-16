@@ -1,0 +1,12 @@
+.ea-footer {
+  @include core-16;
+
+  li {
+    @include core-16;
+    margin-right: 10px;
+  }
+
+  .inline {
+    display: inline;
+  }
+}

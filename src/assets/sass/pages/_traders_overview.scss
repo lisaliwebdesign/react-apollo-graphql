@@ -1,0 +1,22 @@
+.trader-table {
+  table-layout: fixed;
+
+  .col-name {
+    width: 20%;
+    overflow-wrap: break-word;
+  }
+
+  .col-address {
+    width: 40%;
+    overflow-wrap: break-word;
+  }
+
+  .col-country {
+    width: 20%;
+    overflow-wrap: break-word;
+  }
+
+  .col-edit {
+    width: 10%;
+  }
+}

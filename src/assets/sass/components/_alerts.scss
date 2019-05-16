@@ -1,0 +1,37 @@
+%alert {
+  clear: both;
+  padding: 1.05263em;
+  box-sizing: border-box;
+  border-left: 4px solid $silver-sand;
+  background-color: $alabaster;
+  margin: 15px 0;
+
+  > .icon {
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+}
+
+.alert {
+  // Modifiers
+  &-info {
+    @extend %alert;
+    border-color: $silver-sand;
+  }
+
+  // Blocks
+  &-message {
+    display: block;
+    overflow: hidden;
+
+    p {
+      margin-top: em(20);
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

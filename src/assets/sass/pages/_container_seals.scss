@@ -1,0 +1,38 @@
+.heading-xlarge {
+  &.seals {
+    margin-bottom: 45px;
+    margin-top: 15px;
+  }
+}
+
+.container-seals {
+  .heading-medium {
+    margin: 0;
+  }
+}
+
+.seals {
+  &-table {
+    caption {
+      font-weight: $font-weight-bold;
+    }
+
+    tr {
+      input {
+        width: 100%;
+      }
+
+      button {
+        float: right;
+      }
+
+      .capture {
+        width: 66%;
+      }
+
+      .remove {
+        width: 33%;
+      }
+    }
+  }
+}

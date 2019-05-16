@@ -1,0 +1,142 @@
+.commodity-selection-breadcrumb {
+  position: relative;
+  padding: 1em;
+  margin: 0 0 30px;
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  nav {
+    ul {
+      position: relative;
+      list-style: none;
+      padding-left: 42px;
+
+      li {
+        position: relative;
+        display: block;
+        line-height: 25px;
+        padding-top: 5px;
+        word-wrap: break-word;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: -23px;
+        }
+
+        &::before {
+          border-top: 1px solid $black;
+          top: 24px;
+          width: 21px;
+          height: 0;
+        }
+
+        &::after {
+          border-left: 1px solid $black;
+          height: 100%;
+          width: 0;
+          top: 2px;
+        }
+
+        &:last-child {
+          &::after {
+            height: 22px;
+          }
+        }
+
+        strong {
+          input {
+            color: $white;
+            text-decoration: none;
+          }
+        }
+
+        span {
+          line-height: 38px;
+        }
+      }
+    }
+  }
+}
+
+// Commodity selector css
+
+.mainUL {
+  details {
+    summary {
+      display: inline-block;
+      color: $endeavour;
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.commodity-description-link {
+  width: 75%;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: left;
+}
+
+.commodity-code-box {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 8px 5px 5px;
+  font-family: $font-family-nta;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  background-color: $endeavour;
+  width: 25px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.font-small {
+  font-family: $font-family-nta;
+  font-weight: $font-weight-normal;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.link-button {
+  background: none;
+  color: $endeavour;
+  text-decoration: underline;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+
+  &:hover {
+    color: $curious-blue;
+  }
+
+  &:focus {
+    background-color: $yellow-orange;
+    outline: 3px solid $yellow-orange;
+  }
+}
+
+.cancel-button {
+  position: relative;
+  padding-left: 1em;
+}
+
+.or-heading {
+  margin-bottom: 1.875em;
+}
+
+.error-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+}

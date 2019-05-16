@@ -1,0 +1,30 @@
+.lab-test-table {
+  tr {
+    td {
+      button {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.choose-lab-test-table {
+  tr {
+    vertical-align: top;
+
+    td {
+      &:nth-child(1) {
+        width: 45%;
+      }
+
+      &:nth-child(2) {
+        width: 45%;
+      }
+
+      &:nth-child(3) {
+        width: 10%;
+        text-align: right;
+      }
+    }
+  }
+}

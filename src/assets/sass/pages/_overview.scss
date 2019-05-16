@@ -1,0 +1,17 @@
+.todo-tag {
+  background-color: $iron;
+  color: $woodsmoke;
+}
+
+.started-tag {
+  background-color: $jewel;
+  color: $white;
+}
+
+.badge-right {
+  text-align: right;
+
+  .phase-tag {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,7 @@
+@media print {
+  .with-proposition,
+  .breadcrumbs,
+  .no-print {
+    display: none !important;
+  }
+}

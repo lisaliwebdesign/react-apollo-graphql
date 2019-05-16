@@ -1,0 +1,29 @@
+@import '../../../../govuk_modules/govuk_frontend_toolkit/stylesheets/design-patterns/_buttons';
+
+.button-red {
+  @include button($red);
+}
+
+.button-grey {
+  @include button(lighten($grey-2, 15%));
+}
+
+.button-small {
+  padding: calc(.526315em / 2) calc(.789473em / 2) calc(.263157em / 2);
+}
+
+.button-start,
+.button-get-started {
+  @include device-pixel-ratio {
+    background-image: file-url('../images/icon-pointer-2x.png');
+  }
+
+  background-image: file-url('../images/icon-pointer.png');
+}
+
+.logout-link {
+  padding-top: .75em;
+  padding-bottom: .75em;
+  font-size: 16px;
+  float: right;
+}

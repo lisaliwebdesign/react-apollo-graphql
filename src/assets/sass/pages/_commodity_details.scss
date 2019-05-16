@@ -1,0 +1,106 @@
+.total-table {
+  tbody {
+    tr {
+      td {
+        border-bottom: 0;
+
+        &:first-child {
+          font-weight: $font-weight-bold;
+          width: 40%;
+        }
+      }
+    }
+  }
+}
+
+table {
+  &.species-table {
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    thead {
+      tr {
+        th {
+          vertical-align: bottom;
+          border: 0;
+
+          &.species {
+            width: 25%;
+            font-weight: $font-weight-bold;
+          }
+
+          &.animals {
+            width: 20%;
+          }
+
+          &.packages {
+            width: 20%;
+          }
+        }
+      }
+    }
+
+    tbody {
+      border-top: 1px solid $silver-sand;
+      border-bottom: 1px solid $silver-sand;
+
+      tr {
+        border: 0;
+
+        td {
+          vertical-align: top;
+          border-bottom: 0;
+
+          .form-control {
+            width: 75%;
+          }
+
+          &.remove {
+            text-align: right;
+            width: 10%;
+          }
+        }
+      }
+    }
+
+    tfoot {
+      tr {
+        td {
+          border: 0;
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+
+  &.commodity-overview {
+    thead {
+      tr {
+        th {
+          vertical-align: bottom;
+
+          &.commodity {
+            width: 15%;
+          }
+
+          &.description {
+            width: 70%;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          vertical-align: top;
+
+          &.remove {
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}

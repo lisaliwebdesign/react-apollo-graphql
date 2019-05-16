@@ -1,0 +1,198 @@
+.section-header {
+  background-color: $gallery;
+  margin: 50px -15px 0;
+  padding: 13px 15px 10px;
+
+  span {
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+  }
+
+  a {
+    padding-top: 5px;
+    float: right;
+  }
+}
+
+.review-form {
+  table {
+    margin-top: 20px;
+  }
+
+  td {
+    width: 50%;
+    vertical-align: top;
+
+    &.preformatted {
+      white-space: pre;
+    }
+  }
+}
+
+.data-table {
+  &-commodities {
+    thead {
+      tr {
+        th {
+          &.species {
+            width: 20%;
+          }
+
+          &.packages {
+            width: 20%;
+          }
+
+          &.weight {
+            width: 20%;
+          }
+
+          &.package-type {
+            width: 20%;
+          }
+
+          &.animals {
+            width: 20%;
+          }
+
+          &.allowed {
+            width: 10%;
+          }
+
+          &.invasive-alien {
+            width: 20%;
+          }
+        }
+      }
+    }
+  }
+
+  thead {
+    th {
+      vertical-align: bottom;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        vertical-align: top;
+        border-bottom: 0;
+
+        &:first-child {
+          font-weight: $font-weight-normal;
+        }
+
+        &.data-table-desc {
+          word-break: break-all;
+        }
+
+        &.change {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  tfoot {
+    tr {
+      td {
+        border-top: solid 1px $silver-sand;
+        border-bottom: 0;
+
+        &:first-child {
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+}
+
+.commodity-column {
+  width: 20% !important;
+}
+
+.review-table {
+  tr {
+    td {
+      vertical-align: top;
+      border-bottom: 0;
+
+      &:first-child {
+        font-weight: $font-weight-bold;
+        width: 50%;
+      }
+
+      &.change {
+        text-align: right;
+      }
+
+      &.colspan-2 {
+        font-weight: $font-weight-normal;
+        width: auto;
+      }
+    }
+
+    .heading-medium {
+      margin: 0;
+    }
+  }
+
+  a {
+    font-weight: $font-weight-normal;
+  }
+}
+
+.divider {
+  // TODO - need to import gov uk colours border-bottom: 1px solid $border-colour;
+  border-top: 1px solid $silver-sand;
+
+  td {
+    height: 0;
+    font-size: 0;
+    margin: 0;
+  }
+
+  &-top {
+    border-top: 1px solid $silver-sand;
+  }
+
+  &-bottom {
+    border-bottom: 1px solid $silver-sand;
+  }
+}
+
+.wrapped-array-value {
+  margin-bottom: 0;
+}
+
+.review-panel {
+  margin-top: 25px;
+}
+
+.heading-xlarge-bold {
+  font-family: $font-family-nta;
+  text-transform: none;
+  font-size: 30px;
+  line-height: 1.11111;
+  display: block;
+  font-weight: $font-weight-bold;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.panel {
+  & > .icon {
+    &.icon-important {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+}
+
+.overview-action-buttons {
+  margin: 20px 0;
+}
+
+.margin-top {
+  margin-top: .5075em !important;
+}

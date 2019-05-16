@@ -1,0 +1,53 @@
+{
+  "_args": [
+    [
+      "govuk_template_mustache@0.23.0",
+      "/Users/lli/Projects/Defra/frontend-decision/service"
+    ]
+  ],
+  "_from": "govuk_template_mustache@0.23.0",
+  "_id": "govuk_template_mustache@0.23.0",
+  "_inBundle": false,
+  "_integrity": "sha1-OEr65LJXLPSLqKClYhLxw9jBXys=",
+  "_location": "/govuk_template_mustache",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "govuk_template_mustache@0.23.0",
+    "name": "govuk_template_mustache",
+    "escapedName": "govuk_template_mustache",
+    "rawSpec": "0.23.0",
+    "saveSpec": null,
+    "fetchSpec": "0.23.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/govuk_template_mustache/-/govuk_template_mustache-0.23.0.tgz",
+  "_spec": "0.23.0",
+  "_where": "/Users/lli/Projects/Defra/frontend-decision/service",
+  "author": {
+    "name": "Government Digital Service developers",
+    "url": "https://gds.blog.gov.uk/"
+  },
+  "bugs": {
+    "url": "https://github.com/alphagov/govuk_template_mustache/issues"
+  },
+  "description": "{{ mustache }} packaged version of the GOV.UK template",
+  "homepage": "https://github.com/alphagov/govuk_template_mustache#readme",
+  "keywords": [
+    "alphagov",
+    "govuk",
+    "mustache",
+    "template"
+  ],
+  "license": "MIT",
+  "main": "views/layouts/govuk_template.html",
+  "name": "govuk_template_mustache",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alphagov/govuk_template_mustache.git"
+  },
+  "version": "0.23.0"
+}

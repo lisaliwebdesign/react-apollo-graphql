@@ -1,0 +1,13 @@
+.consignment-checks-tabular-information {
+  table {
+    margin-top: 20px;
+    width: 75%;
+  }
+
+  td {
+    &:first-child {
+      vertical-align: top;
+      width: 25%;
+    }
+  }
+}

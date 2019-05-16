@@ -1,0 +1,15 @@
+.icon {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  cursor: default;
+  display: block;
+  height: 22px;
+  text-align: center;
+  width: 22px;
+
+  &-important {
+    margin-top: -13px !important;
+    position: relative;
+    bottom: -7px;
+  }
+}

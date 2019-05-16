@@ -1,0 +1,27 @@
+.consignment-details-net-weight-message {
+  margin-top: 20px;
+}
+
+.consignment-details-row-top-border {
+  td {
+    border-top: 1px solid $silver-sand;
+  }
+}
+
+.containers-table {
+  tr {
+    input {
+      width: 100%;
+    }
+
+    button {
+      float: right;
+    }
+
+    &:last-child {
+      .link-button {
+        display: none;
+      }
+    }
+  }
+}
