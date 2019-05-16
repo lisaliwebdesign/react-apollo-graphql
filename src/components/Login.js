@@ -1,93 +1,114 @@
 import React, { Component } from 'react'
 import { AUTH_TOKEN } from '../constants'
+import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-import {Mutation} from "react-apollo";
+import TextInput from "./form/TextInput";
+import LoginHelp from "./Login/Help";
 
 const SIGNUP_MUTATION = gql`
-    mutation SignupMutation($email: String!, $password: String!, $name: String!) {
-        signup(email: $email, password: $password, name: $name) {
-            token
-        }
+  mutation SignupMutation($email: String!, $password: String!, $name: String!) {
+    signup(email: $email, password: $password, name: $name) {
+      token
     }
+  }
 `
 
 const LOGIN_MUTATION = gql`
-    mutation LoginMutation($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
-            token
-        }
+  mutation LoginMutation($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
     }
+  }
 `
 
 class Login extends Component {
-    state = {
-        login: true, // switch between Login and SignUp
-        email: '',
-        password: '',
-        name: '',
-    }
+  state = {
+    login: true, // switch between Login and SignUp
+    email: '',
+    password: '',
+    name: '',
+  }
 
-    render() {
-        const { login, email, password, name } = this.state
-        return (
-            <div>
-                <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
-                <div className="flex flex-column">
-                    {!login && (
-                        <input
-                            value={name}
-                            onChange={e => this.setState({ name: e.target.value })}
-                            type="text"
-                            placeholder="Your name"
-                        />
-                    )}
-                    <input
-                        value={email}
-                        onChange={e => this.setState({ email: e.target.value })}
-                        type="text"
-                        placeholder="Your email address"
-                    />
-                    <input
-                        value={password}
-                        onChange={e => this.setState({ password: e.target.value })}
-                        type="password"
-                        placeholder="Choose a safe password"
-                    />
-                </div>
-                <div className="flex mt3">
-                    <Mutation
-                        mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
-                        variables={{ email, password, name }}
-                        onCompleted={data => this._confirm(data)}
-                    >
-                        {mutation => (
-                            <div className="pointer mr2 button" onClick={mutation}>
-                                {login ? 'login' : 'create account'}
-                            </div>
-                        )}
-                    </Mutation>
-                    <div
-                        className="pointer button"
-                        onClick={() => this.setState({ login: !login })}
-                    >
-                        {login
-                            ? 'need to create an account?'
-                            : 'already have an account?'}
-                    </div>
-                </div>
+  render() {
+    const { login, email, password, name } = this.state
+    return (
+      <div>
+        <h1 className="govuk-heading-l">
+          <span className="govuk-caption-l">Innovation Funding Service</span>
+          {login ? 'Sing in' : 'Sign Up'}
+        </h1>
+        <div className="govuk-grid-row">
+          <div className="govuk-grid-column-one-half">
+
+          {!login && (
+            <input
+              value={name}
+              onChange={e => this.setState({ name: e.target.value })}
+              type="text"
+              placeholder="Your name"
+            />
+          )}
+            <div className="govuk-form-group">
+              <label className="govuk-label" htmlFor="username">
+                Email address
+              </label>
+              <input
+                className="govuk-input"
+                id="username"
+                name="j_username"
+                value={email}
+                onChange={e => this.setState({ email: e.target.value })}
+                type="email"
+                required
+                placeholder="Your email address"
+              />
             </div>
-        )
-    }
+            <div className="govuk-form-group">
+              <label className="govuk-label" htmlFor="password">
+                Password
+              </label>
+              <div className="password-toggle">
+                <input
+                    className="govuk-input"
+                    id="password"
+                    name="j_password"
+                    value={password}
+                    onChange={e => this.setState({ password: e.target.value })}
+                    type="password"
+                    placeholder="Choose a safe password"
+                  />
+                <button type="button" role="switch" aria-checked="false" aria-label="Show password">Show</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <LoginHelp/>
+        <div className="govuk-form-group govuk-margin-!-top-6">
+          <Mutation
+            mutation={login ? LOGIN_MUTATION : SIGNUP_MUTATION}
+            variables={{ email, password, name }}
+            onCompleted={data => this._confirm(data)}
+          >
+            {mutation => (
+              <button className="govuk-button" onClick={mutation}>
+                {login ? 'Sign in' : 'create account'}
+              </button>
+            )}
+          </Mutation>
+        </div>
+      </div>
+    )
+  }
 
-    _confirm = async data => {
-        const { token } = this.state.login ? data.login : data.signup
-        this._saveUserData(token)
-        this.props.history.push(`/`)
-    }
+  _confirm = async data => {
+    const { token } = this.state.login ? data.login : data.signup
+    this._saveUserData(token)
+    this.props.history.push(`/`)
+  }
 
-    _saveUserData = token => {
-        localStorage.setItem(AUTH_TOKEN, token)
-    }
+  _saveUserData = token => {
+    localStorage.setItem(AUTH_TOKEN, token)
+  }
 }
 
 export default Login
