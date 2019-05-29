@@ -15,6 +15,42 @@ var models = [
   {
     name: "Vote",
     embedded: false
+  },
+  {
+    name: "Organisation",
+    embedded: false
+  },
+  {
+    name: "Competition",
+    embedded: false
+  },
+  {
+    name: "Question",
+    embedded: false
+  },
+  {
+    name: "Application",
+    embedded: false
+  },
+  {
+    name: "Details",
+    embedded: false
+  },
+  {
+    name: "Team",
+    embedded: false
+  },
+  {
+    name: "Finances",
+    embedded: false
+  },
+  {
+    name: "Cost",
+    embedded: false
+  },
+  {
+    name: "Location",
+    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({

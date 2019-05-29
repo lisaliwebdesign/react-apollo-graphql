@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class Banner extends Component {
     render() {
         return (
@@ -18,7 +17,6 @@ class Banner extends Component {
         )
     }
 }
-
 export default Banner
 
 

@@ -15,12 +15,33 @@ function post(parent, { url, description }, context) {
   })
 }
 
+function createOrganisation(parent, { name, type }, context) {
+  return context.prisma.createOrganisation({
+    name,
+    type,
+  })
+}
+
+async function createCompetition(parent, args, context) {
+  const competition = await context.prisma.createCompetition({ ...args })
+  const title = competition.title
+  return {
+    title
+  }
+}
+
+async function createQuestion(parent, args, context) {
+  const question = await context.prisma.createQuestion({ ...args })
+  const title = question.title
+  return {
+    title
+  }
+}
+
 async function signup(parent, args, context) {
   const password = await bcrypt.hash(args.password, 10)
   const user = await context.prisma.createUser({ ...args, password })
-
   const token = jwt.sign({ userId: user.id }, APP_SECRET)
-
   return {
     token,
     user,
@@ -62,6 +83,9 @@ async function vote(parent, args, context) {
 
 module.exports = {
   post,
+  createOrganisation,
+  createCompetition,
+  createQuestion,
   signup,
   login,
   vote,

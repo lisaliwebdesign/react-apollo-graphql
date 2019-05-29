@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import NavBar from "./NavBar";
+import {AUTH_TOKEN} from "../../constants";
+
+const authToken = localStorage.getItem(AUTH_TOKEN);
 
 class Header extends Component {
+
     render() {
         return (
 <header className="govuk-header" role="banner" data-module="header">
@@ -27,8 +32,8 @@ class Header extends Component {
                className="govuk-header__link govuk-header__link--service-name">
                 Innovation Funding Service
             </a>
-
         </div>
+        {authToken? <NavBar/>:null}
     </div>
 </header>
 

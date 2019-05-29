@@ -3,6 +3,19 @@ scalar DateTime
 type Query {
   info: String!
   feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed!
+  organisations(filter: String): Organisations!
+  competitions(filter: String): Competitions!
+  questions(filter: String): Questions!
+}
+
+type Mutation {
+  post(url: String!, description: String!): Link!
+  createOrganisation(name: String!, type: String!): Organisation!
+  createCompetition(description: String!,  title: String!, fundingType: String!, projectSize: String!, openTime : String!, closeTime: String!): Competition!
+  createQuestion(title: String!, description: String!, display: Boolean = true, answer: String = "", complete: Boolean = false): Question!
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  vote(linkId: ID!): Vote!
 }
 
 enum LinkOrderByInput {
@@ -17,13 +30,6 @@ enum LinkOrderByInput {
 type Feed {
   links: [Link!]!
   count: Int!
-}
-
-type Mutation {
-  post(url: String!, description: String!): Link!
-  signup(email: String!, password: String!, name: String!): AuthPayload
-  login(email: String!, password: String!): AuthPayload
-  vote(linkId: ID!): Vote!
 }
 
 type Subscription {
@@ -56,4 +62,59 @@ type Vote {
   id: ID!
   link: Link!
   user: User!
+}
+
+enum ProjectStatus{
+  IN_PROGRESS
+  SUBMITTED
+  NOT_SUBMITTED
+  SUCCESS
+}
+
+enum OrganisationType{
+  BUSINESS
+  RESEARCH
+  RTO
+  NOT_FOR_PROFIT
+}
+
+type Organisation{
+  id: ID!
+  name: String!
+  type: String!
+}
+
+type Organisations {
+  organisations: [Organisation!]!
+  count: Int!
+}
+
+type Competition{
+  id: ID!
+  createdAt: DateTime!
+  description: String!
+  title: String!
+  fundingType: String!
+  projectSize: String!
+  openTime : DateTime!
+  closeTime: DateTime!
+}
+
+type Competitions{
+  competitions: [Competition!]!
+  count: Int!
+}
+
+type Question {
+  id: ID!
+  title: String!
+  description: String!
+  display: Boolean!
+  answer: String!
+  complete: Boolean!
+}
+
+type Questions {
+  count: Int!
+  questions:[Question!]!
 }

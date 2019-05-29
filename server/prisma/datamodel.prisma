@@ -21,3 +21,73 @@ type Vote {
   link: Link!
   user: User!
 }
+
+type Organisation {
+  id: ID! @id
+  name: String!
+  type: String!
+}
+
+type Competition {
+  id: ID! @id
+  description: String!
+  title: String!
+  fundingType: String!
+  projectSize: String!
+  openTime : DateTime!
+  closeTime: DateTime!
+}
+
+type Question {
+  id: ID! @id
+  title: String!
+  description: String!
+  display: Boolean!
+  answer: String!
+  complete: Boolean!
+}
+
+type Application {
+  id: ID! @id
+  questions: [Question!]!
+  finances: Finances!
+  team: Team!
+}
+
+type Details {
+  id: ID! @id
+  title: String!
+  estimate: DateTime!
+  duration: Int!
+  resubmission: Boolean!
+}
+
+type Team {
+  id: ID! @id
+  applicant: User!
+  organisation: [Organisation!]!
+}
+
+type Finances {
+  id: ID! @id
+  location: Location!
+  cost: Cost!
+}
+
+type Cost {
+  id: ID! @id
+  labour: Int
+  overhead: Int
+  meterial: Int
+  capital: Int
+  subcontracting: Int
+  travel: Int
+  other: Int
+  total: Int
+}
+
+type Location {
+  id: ID! @id
+  postcode: String!
+}
+

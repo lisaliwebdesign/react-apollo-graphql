@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { AUTH_TOKEN } from '../constants'
+import { AUTH_TOKEN, ERROR,SIGN_IN_ISSUE_TITLE} from '../constants'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
-import TextInput from "./form/TextInput";
-import LoginHelp from "./Login/Help";
+import LoginHelp from "./login/Help";
 
 const SIGNUP_MUTATION = gql`
   mutation SignupMutation($email: String!, $password: String!, $name: String!) {
@@ -22,15 +21,31 @@ const LOGIN_MUTATION = gql`
 `
 
 class Login extends Component {
-  state = {
-    login: true, // switch between Login and SignUp
-    email: '',
-    password: '',
-    name: '',
+  constructor(props){
+    super(props);
+    this.state = {
+      login: true, // switch between Login and SignUp
+      email: '',
+      password: '',
+      name: '',
+      error: ''
+    }
   }
 
+  errorType =(error)=> {
+    let errorMsg = ''
+    if (error.toString().includes("Field name = email")) {
+      errorMsg = ERROR.HAS_USER
+    }
+    if (error.toString().includes("Invalid password")) {
+      errorMsg = ERROR.INVALID_PASSWORD
+    }
+    this.props.handleError(errorMsg).bind(this)
+  };
+
   render() {
-    const { login, email, password, name } = this.state
+    const { login, email, password, name } = this.state;
+    const handleError = this.props.handleError;
     return (
       <div>
         <h1 className="govuk-heading-l">
@@ -39,15 +54,6 @@ class Login extends Component {
         </h1>
         <div className="govuk-grid-row">
           <div className="govuk-grid-column-one-half">
-
-          {!login && (
-            <input
-              value={name}
-              onChange={e => this.setState({ name: e.target.value })}
-              type="text"
-              placeholder="Your name"
-            />
-          )}
             <div className="govuk-form-group">
               <label className="govuk-label" htmlFor="username">
                 Email address
@@ -62,6 +68,12 @@ class Login extends Component {
                 required
                 placeholder="Your email address"
               />
+              {!login && (
+                  <input
+                      value={this.state.email}
+                      type="hidden"
+                  />
+              )}
             </div>
             <div className="govuk-form-group">
               <label className="govuk-label" htmlFor="password">
@@ -89,10 +101,11 @@ class Login extends Component {
             variables={{ email, password, name }}
             onCompleted={data => this._confirm(data)}
           >
-            {mutation => (
-              <button className="govuk-button" onClick={mutation}>
-                {login ? 'Sign in' : 'create account'}
-              </button>
+            {(mutation, {loading,error}) => (
+                <button className="govuk-button" onClick={mutation}>
+                  {login ? 'Sign in' : 'Create account'}
+                  {error ? this.props.handleError(error): null}
+                </button>
             )}
           </Mutation>
         </div>
@@ -101,9 +114,9 @@ class Login extends Component {
   }
 
   _confirm = async data => {
-    const { token } = this.state.login ? data.login : data.signup
-    this._saveUserData(token)
-    this.props.history.push(`/`)
+      const {token} = this.state.login ? data.login : data.signup
+      this._saveUserData(token)
+      this.props.history.push("/new/1")
   }
 
   _saveUserData = token => {

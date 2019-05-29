@@ -7,6 +7,8 @@
     "apollo-link-context": "^1.0.17",
     "apollo-link-ws": "^1.0.17",
     "graphql": "^14.3.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.4",
     "react": "^16.8.6",
     "react-apollo": "^2.5.5",
     "react-dom": "^16.8.6",
