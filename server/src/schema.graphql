@@ -128,39 +128,5 @@ type Questions {
   questions:[Question!]!
 }
 
-type Details {
-  id: ID!
-  title: String!
-  estimate: DateTime!
-  duration: Int!
-  resubmission: Boolean!
-}
 
-type Team {
-  id: ID!
-  applicant: User!
-  organisation: [Organisation!]!
-}
 
-type Finances {
-  id: ID!
-  location: Location!
-  cost: Cost!
-}
-
-type Cost {
-  id: ID!
-  labour: Int
-  overhead: Int
-  meterial: Int
-  capital: Int
-  subcontracting: Int
-  travel: Int
-  other: Int
-  total: Int
-}
-
-type Location {
-  id: ID!
-  postcode: String!
-}

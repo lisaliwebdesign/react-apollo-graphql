@@ -32,7 +32,7 @@ class App extends Component {
           <main className="govuk-main-wrapper" id="main-content" role="main">
             {this.error? <Error message={this.error}/>:null}
           <Switch>
-            <Route exact path="/" render={() => <Redirect to={authToken?"/new/1":"/login"} />} />
+            <Route exact path="/" render={() => <Redirect to={authToken?"/competition":"/login"} />} />
             <Route exact path="/create" component={CreateLink} />
             <Route exact path="/login" component={Login} handleError={this.handleError}/>
             <Route exact path="/search" component={Search} />

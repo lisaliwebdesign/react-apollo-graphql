@@ -31,26 +31,6 @@ var models = [
   {
     name: "Application",
     embedded: false
-  },
-  {
-    name: "Details",
-    embedded: false
-  },
-  {
-    name: "Team",
-    embedded: false
-  },
-  {
-    name: "Finances",
-    embedded: false
-  },
-  {
-    name: "Cost",
-    embedded: false
-  },
-  {
-    name: "Location",
-    embedded: false
   }
 ];
 exports.Prisma = prisma_lib_1.makePrismaClientClass({

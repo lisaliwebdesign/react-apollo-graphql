@@ -3,11 +3,13 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import TopContent from "./overview/TopContent";
 import TabSection from "./overview/TabSection";
+import {Link} from "react-router-dom";
 
 export const COMPETITION_QUERY = gql`
     query CompetitionQuery{
         competitions {
             competitions {
+                id
                 title
                 description
                 openTime
@@ -30,8 +32,12 @@ class Overview extends Component {
                         <Fragment>
                            <TopContent item={data.competitions.competitions[index]}/>
                             <div>
-                                <a className="govuk-button govuk-!-margin-top-6"
-                                   href="/organisation/select">Start new application</a>
+                                <Link className="govuk-button govuk-!-margin-top-6"
+                                      to={{
+                                          pathname:"/organisation/select",
+                                          competitionId: data.competitions.competitions[index].id
+                                      }}>Start new application
+                                </Link>
                             </div>
                             <TabSection/>
                         </Fragment>

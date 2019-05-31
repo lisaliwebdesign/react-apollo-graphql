@@ -46,7 +46,6 @@ type Question {
   display: Boolean!
   answer: String!
   complete: Boolean!
-  application: Application!
 }
 
 type Application {
@@ -54,43 +53,5 @@ type Application {
   questions: [Question!]!
   user: User!
   competition: Competition!
-}
-
-
-type Details {
-  id: ID! @id
-  title: String!
-  estimate: DateTime!
-  duration: Int!
-  resubmission: Boolean!
-}
-
-type Team {
-  id: ID! @id
-  applicant: User!
-  organisation: [Organisation!]!
-}
-
-type Finances {
-  id: ID! @id
-  location: Location!
-  cost: Cost!
-}
-
-type Cost {
-  id: ID! @id
-  labour: Int
-  overhead: Int
-  meterial: Int
-  capital: Int
-  subcontracting: Int
-  travel: Int
-  other: Int
-  total: Int
-}
-
-type Location {
-  id: ID! @id
-  postcode: String!
 }
 

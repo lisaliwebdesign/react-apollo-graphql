@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Query } from 'react-apollo'
+import { Query, Mutation} from 'react-apollo'
 import gql from 'graphql-tag'
 import {BUTTON_TEXT} from "../../constants";
 
@@ -12,6 +12,13 @@ export const ORGANISATION_QUERY = gql`
             }
             count
         }
+    }
+`
+const CREATE_APPLICATION_MUTATION = gql`
+    mutation CreateApplicationMutation($competitionId: ID!) {
+        createApplication(competitionId: $competitionId) {
+             id
+            }
     }
 `
 
@@ -36,9 +43,19 @@ class Organisation extends Component {
                                     <dd>{data.organisations.organisations[0].type}</dd>
                                 </dl>
 
-                                <button type="submit" className="govuk-button govuk-!-margin-top-6">{BUTTON_TEXT.SAVE_CONTINUE}
-                                </button>
 
+                                <Mutation
+                                    mutation={CREATE_APPLICATION_MUTATION}
+                                    variables={{ competitionId: this.props.location.competitionId }}
+                                    update={(store, { data: { vote } }) =>
+                                        this.props.updateStoreAfterVote(store, vote, this.props.link.id)
+                                    }
+                                >
+                                    {createApplicationMutation => (
+                                        <button type="submit" className="govuk-button govuk-!-margin-top-6" onClick={createApplicationMutation}>{BUTTON_TEXT.SAVE_CONTINUE}
+                                        </button>
+                                    )}
+                                </Mutation>
                             </Fragment>
                         )
                     }}
