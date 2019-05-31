@@ -1,24 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
 import TopContent from "./overview/TopContent";
 import TabSection from "./overview/TabSection";
 import {Link} from "react-router-dom";
+import {COMPETITION_QUERY} from "../../store/Competition";
 
-export const COMPETITION_QUERY = gql`
-    query CompetitionQuery{
-        competitions {
-            competitions {
-                id
-                title
-                description
-                openTime
-                closeTime
-            }
-            count
-        }
-    }
-`
 class Overview extends Component {
 
     render() {

@@ -1,23 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
 import Search from './Form'
 import ListItem from './Item'
 import {PAGE_TITLE} from "../../constants";
+import {COMPETITION_QUERY} from "../../store/Competition";
 
-export const COMPETITION_QUERY = gql`
-    query CompetitionQuery{
-        competitions {
-            competitions {
-                title
-                description
-                openTime
-                closeTime
-            }
-            count
-        }
-    }
-`
+
 
 class Competition extends Component {
     render() {
