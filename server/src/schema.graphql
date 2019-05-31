@@ -11,11 +11,12 @@ type Query {
 type Mutation {
   post(url: String!, description: String!): Link!
   createOrganisation(name: String!, type: String!): Organisation!
-  createCompetition(description: String!,  title: String!, fundingType: String!, projectSize: String!, openTime : String!, closeTime: String!): Competition!
+  createCompetition(description: String!,  title: String!, fundingType: String!, projectSize: String!, openTime : String!, closeTime: String!, open: Boolean = true): Competition!
   createQuestion(title: String!, description: String!, display: Boolean = true, answer: String = "", complete: Boolean = false): Question!
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
   vote(linkId: ID!): Vote!
+  createApplication(competitionId: ID!): Application!
 }
 
 enum LinkOrderByInput {
@@ -98,11 +99,19 @@ type Competition{
   projectSize: String!
   openTime : DateTime!
   closeTime: DateTime!
+  open: Boolean!
 }
 
 type Competitions{
   competitions: [Competition!]!
   count: Int!
+}
+
+type Application {
+  id: ID!
+  questions: [Question!]!
+  user: User!
+  competition: Competition!
 }
 
 type Question {
@@ -117,4 +126,41 @@ type Question {
 type Questions {
   count: Int!
   questions:[Question!]!
+}
+
+type Details {
+  id: ID!
+  title: String!
+  estimate: DateTime!
+  duration: Int!
+  resubmission: Boolean!
+}
+
+type Team {
+  id: ID!
+  applicant: User!
+  organisation: [Organisation!]!
+}
+
+type Finances {
+  id: ID!
+  location: Location!
+  cost: Cost!
+}
+
+type Cost {
+  id: ID!
+  labour: Int
+  overhead: Int
+  meterial: Int
+  capital: Int
+  subcontracting: Int
+  travel: Int
+  other: Int
+  total: Int
+}
+
+type Location {
+  id: ID!
+  postcode: String!
 }

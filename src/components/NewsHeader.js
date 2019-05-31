@@ -21,6 +21,10 @@ class NewsHeader extends Component {
                     <Link to="/search" className="ml1 no-underline black">
                         search
                     </Link>
+                    <div className="ml1">|</div>
+                    <Link to="/competition" className="ml1 no-underline black">
+                        competition
+                    </Link>
                     {authToken && (
                         <div className="flex">
                             <div className="ml1">|</div>

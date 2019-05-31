@@ -81,6 +81,16 @@ async function vote(parent, args, context) {
   })
 }
 
+async function createApplication(parent, args, context) {
+  const userId = getUserId(context)
+  const questions = await context.prisma.questions({})
+  return context.prisma.createApplication({
+    user: { connect: { id: userId } },
+    questions: questions,
+    competition: { connect: { id: args.competitionId } }
+  })
+}
+
 module.exports = {
   post,
   createOrganisation,
@@ -89,4 +99,5 @@ module.exports = {
   signup,
   login,
   vote,
+  createApplication
 }

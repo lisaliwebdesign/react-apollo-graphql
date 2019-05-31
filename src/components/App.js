@@ -1,14 +1,17 @@
 import React, { Component, Fragment } from 'react'
-import LinkList from './LinkList'
-import CreateLink from './CreateLink'
+import LinkList from './link/LinkList'
+import CreateLink from './link/CreateLink'
 import Header from './Header'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import Login from './Login'
+import Login from './login'
 import Error from './error'
-import Search from './Search'
+import Search from './search'
 import Banner from "./top/Banner";
 import Footer from "./Footer";
 import {AUTH_TOKEN} from "../constants";
+import Competition from "./competition";
+import CompetitionOverview from "./competition/Overview";
+import Organisation from "./application/Organisation"
 const authToken = localStorage.getItem(AUTH_TOKEN);
 
 
@@ -35,6 +38,9 @@ class App extends Component {
             <Route exact path="/search" component={Search} />
             <Route exact path="/top" component={LinkList} />
             <Route exact path="/new/:page" component={LinkList} />
+            <Route exact path="/competition" component={Competition} />
+            <Route exact path="/competition/:index/overview" component={CompetitionOverview} />
+            <Route exact path="/organisation/select" component={Organisation} />
           </Switch>
           </main>
         </div>
