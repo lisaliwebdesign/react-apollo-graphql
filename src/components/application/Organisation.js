@@ -1,27 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Query, Mutation} from 'react-apollo'
-import gql from 'graphql-tag'
 import {BUTTON_TEXT} from "../../constants";
-
-export const ORGANISATION_QUERY = gql`
-    query ORGANISATIONQUERY{
-        organisations {
-            organisations {
-                name
-                type
-            }
-            count
-        }
-    }
-`
-const CREATE_APPLICATION_MUTATION = gql`
-    mutation CreateApplicationMutation($competitionId: ID!) {
-        createApplication(competitionId: $competitionId) {
-             id
-            }
-    }
-`
-
+import {ORGANISATION_QUERY} from "../../store/Organisation";
+import {CREATE_APPLICATION_MUTATION} from "../../store/Application";
 
 class Organisation extends Component {
     render() {
@@ -33,6 +14,9 @@ class Organisation extends Component {
                         if (error) return <div>Error</div>
                         return (
                             <Fragment>
+                                <div className="sub-header">
+                                    <a className="govuk-back-link" href="competition/1/overview">Back to application</a>
+                                </div>
                                 <h1 className="govuk-heading-xl">
                                     <span className="govuk-caption-l">Start new application</span>
                                     Your organisation
@@ -42,8 +26,7 @@ class Organisation extends Component {
                                     <dt>{data.organisations.organisations[0].name}</dt>
                                     <dd>{data.organisations.organisations[0].type}</dd>
                                 </dl>
-
-
+                                
                                 <Mutation
                                     mutation={CREATE_APPLICATION_MUTATION}
                                     variables={{ competitionId: this.props.location.competitionId }}

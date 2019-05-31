@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import {Link} from "react-router-dom";
 
 
 class Item extends Component {
@@ -8,7 +9,13 @@ class Item extends Component {
             <ul className="govuk-list">
                 <li>
                     <h2 className="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-6">
-                        <a className="govuk-link" href={'/competition/'+ (index+1) +'/overview'}>{data.title}</a>
+                        <Link className="govuk-link"
+                              to={{
+                                  pathname:'/competition/'+ (index+1) +'/overview',
+                                  competitionId: data.id
+                              }}> {data.title}
+                        </Link>
+                        
                     </h2>
                     <div className="wysiwyg-styles govuk-!-margin-bottom-4">{data.description}
                     </div>

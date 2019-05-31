@@ -6,6 +6,7 @@ type Query {
   organisations(filter: String): Organisations!
   competitions(filter: String): Competitions!
   questions(filter: String): Questions!
+  getCompetition(filter: String): Competition!
 }
 
 type Mutation {

@@ -1,4 +1,3 @@
-import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 export const COMPETITION_QUERY = gql`
@@ -15,3 +14,19 @@ export const COMPETITION_QUERY = gql`
         }
     }
 `
+
+export const GET_COMPETITION_BY_ID_QUERY = gql`
+    query GetCompetitionByIdQuery($filter: String!) {
+        competitions(filter: $filter) {
+            competitions {
+                id
+                title
+                description
+                openTime
+                closeTime
+            }
+            count
+        }
+    }
+`
+

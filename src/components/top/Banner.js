@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 class Banner extends Component {
     render() {
@@ -17,6 +17,7 @@ class Banner extends Component {
         )
     }
 }
+
 export default Banner
 
 

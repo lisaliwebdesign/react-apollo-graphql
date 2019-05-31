@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import NavBar from "./NavBar";
 import {AUTH_TOKEN} from "../../constants";
 
@@ -8,10 +8,10 @@ class Header extends Component {
 
     render() {
         return (
-<header className="govuk-header" role="banner" data-module="header">
-    <div className="govuk-header__container govuk-width-container">
-        <div className="govuk-header__logo">
-            <a href="https://www.gov.uk/" className="govuk-header__link govuk-header__link--homepage">
+            <header className="govuk-header" role="banner" data-module="header">
+                <div className="govuk-header__container govuk-width-container">
+                    <div className="govuk-header__logo">
+                        <a href="https://www.gov.uk/" className="govuk-header__link govuk-header__link--homepage">
                       <span className="govuk-header__logotype">
                           <svg role="presentation" focusable="false" className="govuk-header__logotype-crown"
                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 97" height="32" width="36">
@@ -25,19 +25,20 @@ class Header extends Component {
                               GOV.UK
                           </span>
                       </span>
-            </a>
-        </div>
-        <div className="govuk-header__content">
-            <a href="https://demo.apps.prod.ifs-test-clusters.com/competition/search"
-               className="govuk-header__link govuk-header__link--service-name">
-                Innovation Funding Service
-            </a>
-        </div>
-        {authToken? <NavBar/>:null}
-    </div>
-</header>
+                        </a>
+                    </div>
+                    <div className="govuk-header__content">
+                        <a href="/competition"
+                           className="govuk-header__link govuk-header__link--service-name">
+                            Innovation Funding Service
+                        </a>
+                    </div>
+                    {authToken ? <NavBar/> : null}
+                </div>
+            </header>
 
-        )}
+        )
+    }
 }
 
 export default Header

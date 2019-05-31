@@ -44,7 +44,13 @@ async function competitions(parent, args, context) {
       .competitionsConnection()
       .aggregate()
       .count()
-  const competitions = await context.prisma.competitions()
+  const competitions = await context.prisma.competitions({
+    where: {
+      OR: [
+        { id: args.filter },
+      ],
+    },
+  })
   return {
     count,
     competitions

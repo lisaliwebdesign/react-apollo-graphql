@@ -9,7 +9,7 @@ class Form extends Component {
                 <fieldset className="govuk-fieldset">
                     <legend className="govuk-fieldset__legend govuk-fieldset__legend--s govuk-!-margin-0">
                         <h2 className="govuk-fieldset__heading">
-                            Filter competitions
+                            Filter competitions - This section is under construction
                         </h2>
                     </legend>
                         <hr className="govuk-section-break govuk-section-break--visible"/>
