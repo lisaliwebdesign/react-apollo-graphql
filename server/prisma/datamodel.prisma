@@ -14,6 +14,7 @@ type User {
   password: String!
   links: [Link!]!
   votes: [Vote!]!
+  applications: [Application!]!
 }
 
 type Vote {
@@ -48,10 +49,11 @@ type Question {
   complete: Boolean!
 }
 
+
 type Application {
   id: ID! @id
-  questions: [Question!]!
   user: User!
+  organisation: [Organisation!]!
   competition: Competition!
+  questions: [Question!]!
 }
-

@@ -81,26 +81,24 @@ async function vote(parent, args, context) {
   })
 }
 
+
 async function createApplication(parent, args, context) {
-  //const userId = getUserId(context)
-  const userId = 'cjwc5skza697c0b61vzr5evwy'
-  const compId = 'cjwc5uivw69re0b611t32fk8i'
-  const questions = await context.prisma.questions({})
-  //const application = await context.prisma.createApplication({...args, questions,user: { connect: { id: userId } } })
-  // const application = await context.prisma.createApplication({
-  //   user: { connect: { id: userId } },
-  //   questions: questions,
-  //   competition: { connect: { id: compId} }
-  // })
-  // return {
-  //   user: { connect: { id: userId } },
-  //   application: application,
-  // }
-  const application = await context.prisma.createApplication()
+  const userId = getUserId(context)
+ // const questions = await context.prisma.questions()
+  const application = await context.prisma.createApplication({
+    // questions : args.questions,
+    user: { connect: { id: userId } },
+    competition: { connect: { id: args.competitionId } },
+  })
   return {
     user: { connect: { id: userId } },
     application: application,
   }
+  // return context.prisma.createApplication({
+  //   questions : questions,
+  //   user: { connect: { id: userId } },
+  //   competition: { connect: { id: args.competitionId } },
+  // })
 }
 
 module.exports = {

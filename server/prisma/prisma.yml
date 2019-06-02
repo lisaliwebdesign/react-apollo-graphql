@@ -2,7 +2,7 @@
 #endpoint: ''
 endpoint: https://eu1.prisma.sh/lisali-faea36/graphql-testing/dev
 
-# Defines your models, each model is mapped to the database as a table.
+# Defines your models, each model is mapped to the database as a table test.
 datamodel: datamodel.prisma
 
 # Specifies the language and directory for the generated Prisma client.

@@ -49,6 +49,7 @@ type User {
   name: String!
   email: String!
   links: [Link!]!
+  applications: [Application!]!
 }
 
 type Link {
@@ -110,9 +111,10 @@ type Competitions{
 
 type Application {
   id: ID!
-  questions: [Question!]!
   user: User!
   competition: Competition!
+  questions: [Question!]!
+  organisations: [Organisations!]!
 }
 
 type Question {
